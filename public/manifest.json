@@ -1,0 +1,13 @@
+{
+  "name": "CardOptimizer MX",
+  "short_name": "CardOpt",
+  "description": "Optimiza tus tarjetas de crédito",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F7FC",
+  "theme_color": "#00C853",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
