@@ -267,13 +267,9 @@ export function useSheetData() {
     error,     // null | "demo" | string con el mensaje de error
     lastSync,  // Date de la última sincronización exitosa
     source,    // "sheets" | "cache" | "fallback" | "demo"
-    refetch,   // Función para forzar una recarga manual
+    refetch: fetchData,   // Función para forzar una recarga manual
     isDemo,    // true si el SHEET_ID aún no fue configurado
   };
-
-  // ↑ Necesitamos exponer refetch desde el scope de fetchData
-  // Se redefine abajo con la firma correcta:
-  function refetch() { return fetchData(); }
 }
 
 // ─── 7. COMPONENTE DE ESTADO (opcional, úsalo en tu UI) ──────────────

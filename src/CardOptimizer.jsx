@@ -384,40 +384,40 @@ const CSS = `
 
 // Mapa de búsqueda semántica
 const SEARCH_MAP = {
-  supermercado: ["walmart","soriana","chedraui","aurrera","bodega","costco","superama","heb","super","mercado","grocery","alimentos","compras","viveres","tienda","sams","sam","kroger","la comer","city market","superstore"],
-  gasolina:     ["gasolina","gas","gasolinera","pemex","bp","shell","combustible","bencina","nafta","petroleo","diesel","litros"],
-  restaurantes: ["restaurante","restaurant","comida","pizza","tacos","burger","sushi","cafe","coffee","starbucks","dominos","mcdonalds","bk","burger king","kfc","pollo","cenar","comer fuera","antojitos","mariscos","bar"],
-  farmacias:    ["farmacia","medicamento","medicina","pastilla","doctor","salud","benavides","ahorro","guadalajara","similares","generico","remedio"],
-  delivery:     ["rappi","uber eats","didi food","mercado libre","delivery","domicilio","pedido","rapido","pedir"],
-  viajes:       ["viaje","vuelo","aerolinea","hotel","hospedaje","renta","airbnb","boleto","avion","aeromexico","volaris","vivaerobus","aeropuerto","viajar","vacaciones","turismo"],
-  ecommerce:    ["amazon","liverpool","mercado libre","palacio","tienda online","online","internet","compra en linea","web","digital"],
-  moda:         ["ropa","liverpool","suburbia","palacio de hierro","fashion","moda","zapatos","camisa","pantalon","vestido","zapateria"],
-  general:      ["todo","cualquier","todo lo demas","resto","demas","otros","miscelanea","varios"],
+  supermercado: ["walmart", "soriana", "chedraui", "aurrera", "bodega", "costco", "superama", "heb", "super", "mercado", "grocery", "alimentos", "compras", "viveres", "tienda", "sams", "sam", "kroger", "la comer", "city market", "superstore"],
+  gasolina: ["gasolina", "gas", "gasolinera", "pemex", "bp", "shell", "combustible", "bencina", "nafta", "petroleo", "diesel", "litros"],
+  restaurantes: ["restaurante", "restaurant", "comida", "pizza", "tacos", "burger", "sushi", "cafe", "coffee", "starbucks", "dominos", "mcdonalds", "bk", "burger king", "kfc", "pollo", "cenar", "comer fuera", "antojitos", "mariscos", "bar"],
+  farmacias: ["farmacia", "medicamento", "medicina", "pastilla", "doctor", "salud", "benavides", "ahorro", "guadalajara", "similares", "generico", "remedio"],
+  delivery: ["rappi", "uber eats", "didi food", "mercado libre", "delivery", "domicilio", "pedido", "rapido", "pedir"],
+  viajes: ["viaje", "vuelo", "aerolinea", "hotel", "hospedaje", "renta", "airbnb", "boleto", "avion", "aeromexico", "volaris", "vivaerobus", "aeropuerto", "viajar", "vacaciones", "turismo"],
+  ecommerce: ["amazon", "liverpool", "mercado libre", "palacio", "tienda online", "online", "internet", "compra en linea", "web", "digital"],
+  moda: ["ropa", "liverpool", "suburbia", "palacio de hierro", "fashion", "moda", "zapatos", "camisa", "pantalon", "vestido", "zapateria"],
+  general: ["todo", "cualquier", "todo lo demas", "resto", "demas", "otros", "miscelanea", "varios"],
 };
 
 // Categorías populares con info
 const QUICK_CATS = [
-  { key:"supermercado", label:"Súper", icon:"🛒" },
-  { key:"gasolina",     label:"Gasolina", icon:"⛽" },
-  { key:"restaurantes", label:"Comer", icon:"🍽️" },
-  { key:"farmacias",    label:"Farmacia", icon:"💊" },
-  { key:"delivery",     label:"Delivery", icon:"📦" },
-  { key:"viajes",       label:"Viajes", icon:"✈️" },
-  { key:"ecommerce",    label:"Online", icon:"🛍️" },
+  { key: "supermercado", label: "Súper", icon: "🛒" },
+  { key: "gasolina", label: "Gasolina", icon: "⛽" },
+  { key: "restaurantes", label: "Comer", icon: "🍽️" },
+  { key: "farmacias", label: "Farmacia", icon: "💊" },
+  { key: "delivery", label: "Delivery", icon: "📦" },
+  { key: "viajes", label: "Viajes", icon: "✈️" },
+  { key: "ecommerce", label: "Online", icon: "🛍️" },
 ];
 
 // ─── ICONS ────────────────────────────────────────────────────────────
-const IconWallet   = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>;
-const IconSearch   = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>;
-const IconGrid     = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>;
-const IconPlus     = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
-const IconCheck    = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>;
-const IconTrash    = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>;
+const IconWallet = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="3" /><path d="M2 10h20" /></svg>;
+const IconSearch = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>;
+const IconGrid = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>;
+const IconPlus = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>;
+const IconCheck = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>;
+const IconTrash = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v6" /><path d="M14 11v6" /><path d="M9 6V4h6v2" /></svg>;
 
 // ─── HELPER: detectar categoría ──────────────────────────────────────
 function detectCategory(text) {
   if (!text) return null;
-  const t = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  const t = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   for (const [cat, keywords] of Object.entries(SEARCH_MAP)) {
     if (keywords.some(k => t.includes(k))) return cat;
   }
@@ -426,7 +426,7 @@ function detectCategory(text) {
 
 // ─── HELPER: colores del banco ────────────────────────────────────────
 function getBgColor(id) {
-  const map = {nu1:"#F3E5FF",bbva1:"#E3F0FF",bbva2:"#E3F0FF",banamex1:"#FFF8E1",santander1:"#FFEBEE",hsbc1:"#E8F5E9",amex1:"#FFF8E1",rappi1:"#FFF3E0",liverpool1:"#F3E5F5",hey1:"#FFF3E0",stori1:"#ECEFF1",invex1:"#FFF8E0"};
+  const map = { nu1: "#F3E5FF", bbva1: "#E3F0FF", bbva2: "#E3F0FF", banamex1: "#FFF8E1", santander1: "#FFEBEE", hsbc1: "#E8F5E9", amex1: "#FFF8E1", rappi1: "#FFF3E0", liverpool1: "#F3E5F5", hey1: "#FFF3E0", stori1: "#ECEFF1", invex1: "#FFF8E0" };
   return map[id] || "#F4F7FC";
 }
 
@@ -435,12 +435,18 @@ export default function CardOptimizer() {
   // 3. INYECTAMOS EL HOOK AQUÍ (Renombramos las variables exportadas a CATALOG y CASHBACK_RULES para que funcionen con tu código actual)
   const { catalog: CATALOG, rules: CASHBACK_RULES, loading, error, source, lastSync, refetch } = useSheetData();
 
-  const [tab, setTab]         = useState("wallet");
-  const [wallet, setWallet]   = useState(["santander1","nu1","hey1"]);
-  const [query, setQuery]     = useState("");
+  const [tab, setTab] = useState("wallet");
+  const [wallet, setWallet] = useState(() => {
+    try {
+      const saved = localStorage.getItem("cardopt_wallet_v1");
+      if (saved) return JSON.parse(saved);
+    } catch (_) {}
+    return [];
+  });
+  const [query, setQuery] = useState("");
   const [activeChip, setActiveChip] = useState(null);
-  const [toast, setToast]     = useState(null);
-  const [modal, setModal]     = useState(null); // card id
+  const [toast, setToast] = useState(null);
+  const [modal, setModal] = useState(null); // card id
   const [catFilter, setCatFilter] = useState("all");
 
   // Inyectar CSS y fuente
@@ -451,7 +457,14 @@ export default function CardOptimizer() {
     return () => document.head.removeChild(style);
   }, []);
 
-  function showToast(msg, icon="✅") {
+  // Persistir billetera en localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem("cardopt_wallet_v1", JSON.stringify(wallet));
+    } catch (_) {}
+  }, [wallet]);
+
+  function showToast(msg, icon = "✅") {
     setToast({ msg, icon });
     setTimeout(() => setToast(null), 2500);
   }
@@ -479,11 +492,11 @@ export default function CardOptimizer() {
       return {
         card,
         value: rule ? rule.value : 0,
-        type:  rule ? rule.type  : "",
-        nota:  rule ? rule.nota  : "Sin beneficio especial",
+        type: rule ? rule.type : "",
+        nota: rule ? rule.nota : "Sin beneficio especial",
       };
     });
-    return results.sort((a,b) => b.value - a.value);
+    return results.sort((a, b) => b.value - a.value);
   }, [query, activeChip, wallet, CATALOG, CASHBACK_RULES]);
 
   const detectedCat = activeChip || detectCategory(query);
@@ -502,7 +515,7 @@ export default function CardOptimizer() {
   const modalRules = modal ? CASHBACK_RULES.filter(r => r.cardId === modal) : [];
 
   return (
-    <div style={{maxWidth:430, margin:"0 auto", minHeight:"100dvh", background:"var(--bg)", fontFamily:"'Plus Jakarta Sans',sans-serif", position:"relative"}}>
+    <div style={{ maxWidth: 430, margin: "0 auto", minHeight: "100dvh", background: "var(--bg)", fontFamily: "'Plus Jakarta Sans',sans-serif", position: "relative" }}>
 
       {/* 4. AGREGAMOS EL BANNER DE SINCRONIZACIÓN EN LA PARTE SUPERIOR */}
       <div style={{ paddingBottom: '4px' }}>
@@ -510,60 +523,60 @@ export default function CardOptimizer() {
       </div>
 
       {/* ── TABS ── */}
-      {tab === "wallet"    && <WalletPage  walletCards={walletCards} onAddCard={()=>setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES}/>}
-      {tab === "optimizer" && <OptimizerPage query={query} setQuery={setQuery} activeChip={activeChip} setActiveChip={setActiveChip} results={optimizerResults} detectedCat={detectedCat} hasWallet={wallet.length>0} goWallet={()=>setTab("catalog")} />}
-      {tab === "catalog"   && <CatalogPage catalog={filteredCatalog} wallet={wallet} onToggle={toggleWallet} setModal={setModal} catFilter={catFilter} setCatFilter={setCatFilter} CASHBACK_RULES={CASHBACK_RULES}/>}
+      {tab === "wallet" && <WalletPage walletCards={walletCards} onAddCard={() => setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES} />}
+      {tab === "optimizer" && <OptimizerPage query={query} setQuery={setQuery} activeChip={activeChip} setActiveChip={setActiveChip} results={optimizerResults} detectedCat={detectedCat} hasWallet={wallet.length > 0} goWallet={() => setTab("catalog")} />}
+      {tab === "catalog" && <CatalogPage catalog={filteredCatalog} wallet={wallet} onToggle={toggleWallet} setModal={setModal} catFilter={catFilter} setCatFilter={setCatFilter} CASHBACK_RULES={CASHBACK_RULES} />}
 
       {/* ── BOTTOM NAV ── */}
       <nav className="bottom-nav">
-        <button className={`nav-btn ${tab==="wallet"?"active":""}`} onClick={()=>setTab("wallet")}>
-          <IconWallet/> Billetera
-          {tab==="wallet" && <span className="nav-indicator"/>}
+        <button className={`nav-btn ${tab === "wallet" ? "active" : ""}`} onClick={() => setTab("wallet")}>
+          <IconWallet /> Billetera
+          {tab === "wallet" && <span className="nav-indicator" />}
         </button>
-        <button className={`nav-btn ${tab==="optimizer"?"active":""}`} onClick={()=>setTab("optimizer")}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41"/></svg>
+        <button className={`nav-btn ${tab === "optimizer" ? "active" : ""}`} onClick={() => setTab("optimizer")}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M3 12h2M19 12h2M12 3v2M12 19v2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41" /></svg>
           Optimizador
-          {tab==="optimizer" && <span className="nav-indicator"/>}
+          {tab === "optimizer" && <span className="nav-indicator" />}
         </button>
-        <button className={`nav-btn ${tab==="catalog"?"active":""}`} onClick={()=>setTab("catalog")}>
-          <IconGrid/> Catálogo
-          {tab==="catalog" && <span className="nav-indicator"/>}
+        <button className={`nav-btn ${tab === "catalog" ? "active" : ""}`} onClick={() => setTab("catalog")}>
+          <IconGrid /> Catálogo
+          {tab === "catalog" && <span className="nav-indicator" />}
         </button>
       </nav>
 
       {/* ── MODAL DETALLE TARJETA ── */}
       {modal && selectedModal && (
-        <div className="modal-overlay" onClick={()=>setModal(null)}>
-          <div className="modal-sheet" onClick={e=>e.stopPropagation()}>
-            <div className="modal-handle"/>
+        <div className="modal-overlay" onClick={() => setModal(null)}>
+          <div className="modal-sheet" onClick={e => e.stopPropagation()}>
+            <div className="modal-handle" />
             {/* Mini card */}
-            <div className="credit-card" style={{background:selectedModal.gradient, marginBottom:20}}>
+            <div className="credit-card" style={{ background: selectedModal.gradient, marginBottom: 20 }}>
               <div>
                 <div className="card-bank">{selectedModal.bank}</div>
                 <div className="card-name">{selectedModal.name}</div>
               </div>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end"}}>
-                <div className="card-chip"/>
-                <div style={{fontSize:28, opacity:.7}}>{selectedModal.emoji}</div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <div className="card-chip" />
+                <div style={{ fontSize: 28, opacity: .7 }}>{selectedModal.emoji}</div>
               </div>
             </div>
-            <div style={{fontFamily:"'Syne',sans-serif",fontSize:20,fontWeight:800,marginBottom:4}}>{selectedModal.bank} {selectedModal.name}</div>
-            <div style={{fontSize:13,color:"var(--muted)",marginBottom:16}}>{selectedModal.beneficios}</div>
-            <div style={{fontWeight:700,fontSize:14,marginBottom:8}}>💳 Anualidad</div>
-            <div style={{background:"var(--bg)",borderRadius:12,padding:"10px 14px",marginBottom:16,fontSize:14,fontWeight:600,color:"var(--blue)"}}>{selectedModal.anualidad}</div>
-            <div style={{fontWeight:700,fontSize:14,marginBottom:10}}>🎯 Beneficios por categoría</div>
-            {modalRules.map((r,i) => (
-              <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:"1px solid var(--border)"}}>
+            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 800, marginBottom: 4 }}>{selectedModal.bank} {selectedModal.name}</div>
+            <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 16 }}>{selectedModal.beneficios}</div>
+            <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 8 }}>💳 Anualidad</div>
+            <div style={{ background: "var(--bg)", borderRadius: 12, padding: "10px 14px", marginBottom: 16, fontSize: 14, fontWeight: 600, color: "var(--blue)" }}>{selectedModal.anualidad}</div>
+            <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 10 }}>🎯 Beneficios por categoría</div>
+            {modalRules.map((r, i) => (
+              <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid var(--border)" }}>
                 <div>
-                  <div style={{fontSize:13,fontWeight:700,textTransform:"capitalize"}}>{r.cat === "general" ? "🌟 Todas las compras" : `${["supermercado","gasolina","restaurantes","farmacias","delivery","viajes","ecommerce","moda"].includes(r.cat) ? ["🛒","⛽","🍽️","💊","📦","✈️","🛍️","👗"][["supermercado","gasolina","restaurantes","farmacias","delivery","viajes","ecommerce","moda"].indexOf(r.cat)] : "📌"} ${r.cat.charAt(0).toUpperCase()+r.cat.slice(1)}`}</div>
-                  <div style={{fontSize:11,color:"var(--muted)",marginTop:2}}>{r.nota}</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, textTransform: "capitalize" }}>{r.cat === "general" ? "🌟 Todas las compras" : `${["supermercado", "gasolina", "restaurantes", "farmacias", "delivery", "viajes", "ecommerce", "moda"].includes(r.cat) ? ["🛒", "⛽", "🍽️", "💊", "📦", "✈️", "🛍️", "👗"][["supermercado", "gasolina", "restaurantes", "farmacias", "delivery", "viajes", "ecommerce", "moda"].indexOf(r.cat)] : "📌"} ${r.cat.charAt(0).toUpperCase() + r.cat.slice(1)}`}</div>
+                  <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 2 }}>{r.nota}</div>
                 </div>
-                <div style={{fontFamily:"'Syne',sans-serif",fontSize:18,fontWeight:800,color:r.value>=3?"var(--green2)":"var(--blue)"}}>{r.value}% <span style={{fontSize:11,fontWeight:600,color:"var(--muted)"}}>{r.type}</span></div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 18, fontWeight: 800, color: r.value >= 3 ? "var(--green2)" : "var(--blue)" }}>{r.value}% <span style={{ fontSize: 11, fontWeight: 600, color: "var(--muted)" }}>{r.type}</span></div>
               </div>
             ))}
-            <div style={{display:"flex",gap:10,marginTop:20}}>
-              <button className={`btn-add ${wallet.includes(selectedModal.id)?"added":""}`} style={{flex:1,justifyContent:"center",padding:"14px"}} onClick={()=>{toggleWallet(selectedModal.id);setModal(null);}}>
-                {wallet.includes(selectedModal.id) ? <><span style={{fontSize:14}}><IconCheck/></span> En tu billetera</> : <><span style={{fontSize:14}}><IconPlus/></span> Agregar a billetera</>}
+            <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
+              <button className={`btn-add ${wallet.includes(selectedModal.id) ? "added" : ""}`} style={{ flex: 1, justifyContent: "center", padding: "14px" }} onClick={() => { toggleWallet(selectedModal.id); setModal(null); }}>
+                {wallet.includes(selectedModal.id) ? <><span style={{ fontSize: 14 }}><IconCheck /></span> En tu billetera</> : <><span style={{ fontSize: 14 }}><IconPlus /></span> Agregar a billetera</>}
               </button>
             </div>
           </div>
@@ -578,11 +591,6 @@ export default function CardOptimizer() {
       )}
     </div>
   );
-  return (
-    <div>
-       {/* Si esto falta, la página queda blanca */}
-    </div>
-  );
 }
 
 
@@ -592,33 +600,33 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
     <div className="page">
       <div className="topbar">
         <div>
-          <div style={{fontSize:12,color:"var(--muted)",fontWeight:600}}>Buenos días 👋</div>
-          <div className="topbar-title" style={{fontFamily:"'Syne',sans-serif"}}>Mi Billetera</div>
+          <div style={{ fontSize: 12, color: "var(--muted)", fontWeight: 600 }}>Buenos días 👋</div>
+          <div className="topbar-title" style={{ fontFamily: "'Syne',sans-serif" }}>Mi Billetera</div>
         </div>
         <div className="topbar-avatar">MX</div>
       </div>
 
       {/* Hero */}
-      <div className="wallet-hero fade-up" style={{position:"relative"}}>
+      <div className="wallet-hero fade-up" style={{ position: "relative" }}>
         <div className="wallet-hero-label">Tarjetas activas</div>
         <div className="wallet-hero-count">{walletCards.length}</div>
-        <div className="wallet-hero-sub">{walletCards.length===0 ? "Agrega tu primera tarjeta →" : walletCards.length===1 ? "Tienes 1 plástico registrado" : `${walletCards.length} plásticos en tu billetera`}</div>
+        <div className="wallet-hero-sub">{walletCards.length === 0 ? "Agrega tu primera tarjeta →" : walletCards.length === 1 ? "Tienes 1 plástico registrado" : `${walletCards.length} plásticos en tu billetera`}</div>
         <div className="wallet-hero-icon">💳</div>
       </div>
 
       {/* Tarjetas visuales (carrusel horizontal) */}
       {walletCards.length > 0 && (
-        <div style={{padding:"16px 0 4px"}}>
-          <div style={{display:"flex",gap:14,overflowX:"auto",padding:"4px 16px 12px",scrollbarWidth:"none"}}>
-            {walletCards.map((c,i) => (
-              <div key={c.id} className="credit-card fade-up" style={{background:c.gradient, minWidth:240, animationDelay:`${i*0.08}s`, cursor:"pointer"}} onClick={()=>setModal(c.id)}>
+        <div style={{ padding: "16px 0 4px" }}>
+          <div style={{ display: "flex", gap: 14, overflowX: "auto", padding: "4px 16px 12px", scrollbarWidth: "none" }}>
+            {walletCards.map((c, i) => (
+              <div key={c.id} className="credit-card fade-up" style={{ background: c.gradient, minWidth: 240, animationDelay: `${i * 0.08}s`, cursor: "pointer" }} onClick={() => setModal(c.id)}>
                 <div>
                   <div className="card-bank">{c.bank}</div>
                   <div className="card-name">{c.name}</div>
                 </div>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end"}}>
-                  <div className="card-chip"/>
-                  <div style={{fontSize:26,opacity:.8}}>{c.emoji}</div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                  <div className="card-chip" />
+                  <div style={{ fontSize: 26, opacity: .8 }}>{c.emoji}</div>
                 </div>
               </div>
             ))}
@@ -633,7 +641,7 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
           <div className="empty-title">Tu billetera está vacía</div>
           <div className="empty-sub">Agrega tus tarjetas para que el Optimizador pueda recomendarte cuál usar en cada compra.</div>
           <button className="btn-primary" onClick={onAddCard}>
-            <span style={{fontSize:18}}><IconPlus/></span>
+            <span style={{ fontSize: 18 }}><IconPlus /></span>
             Agregar mi primera tarjeta
           </button>
         </div>
@@ -641,22 +649,22 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
         <>
           <div className="section-header fade-up-1">
             <div className="section-title">Tus tarjetas</div>
-            <button className="btn-ghost" style={{padding:"8px 14px",fontSize:13}} onClick={onAddCard}>+ Agregar</button>
+            <button className="btn-ghost" style={{ padding: "8px 14px", fontSize: 13 }} onClick={onAddCard}>+ Agregar</button>
           </div>
-          {walletCards.map((c,i) => {
-            const top = CASHBACK_RULES.filter(r=>r.cardId===c.id).sort((a,b)=>b.value-a.value)[0];
+          {walletCards.map((c, i) => {
+            const top = CASHBACK_RULES.filter(r => r.cardId === c.id).sort((a, b) => b.value - a.value)[0];
             return (
-              <div key={c.id} className={`wallet-item fade-up-${Math.min(i+1,3)}`} style={{animationDelay:`${i*0.07}s`}}>
-                <div className="wallet-dot" style={{background:getBgColor(c.id)}} onClick={()=>setModal(c.id)}>
-                  <span style={{fontSize:22}}>{c.emoji}</span>
+              <div key={c.id} className={`wallet-item fade-up-${Math.min(i + 1, 3)}`} style={{ animationDelay: `${i * 0.07}s` }}>
+                <div className="wallet-dot" style={{ background: getBgColor(c.id) }} onClick={() => setModal(c.id)}>
+                  <span style={{ fontSize: 22 }}>{c.emoji}</span>
                 </div>
-                <div className="wallet-info" onClick={()=>setModal(c.id)}>
+                <div className="wallet-info" onClick={() => setModal(c.id)}>
                   <div className="wallet-name">{c.bank} {c.name}</div>
                   <div className="wallet-bank">{c.anualidad}</div>
-                  {top && <div className="wallet-badge" style={{marginTop:5}}>🎯 Hasta {top.value}% {top.type}</div>}
+                  {top && <div className="wallet-badge" style={{ marginTop: 5 }}>🎯 Hasta {top.value}% {top.type}</div>}
                 </div>
-                <button className="btn-icon" style={{color:"#EF5350"}} onClick={()=>onRemove(c.id)}>
-                  <IconTrash/>
+                <button className="btn-icon" style={{ color: "#EF5350" }} onClick={() => onRemove(c.id)}>
+                  <IconTrash />
                 </button>
               </div>
             );
@@ -669,11 +677,11 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
 
 // ─── PAGE: OPTIMIZADOR ───────────────────────────────────────────────
 function OptimizerPage({ query, setQuery, activeChip, setActiveChip, results, detectedCat, hasWallet, goWallet }) {
-  const catLabel = detectedCat ? QUICK_CATS.find(c=>c.key===detectedCat)?.label || detectedCat : null;
-  const catIcon  = detectedCat ? QUICK_CATS.find(c=>c.key===detectedCat)?.icon || "📌" : null;
+  const catLabel = detectedCat ? QUICK_CATS.find(c => c.key === detectedCat)?.label || detectedCat : null;
+  const catIcon = detectedCat ? QUICK_CATS.find(c => c.key === detectedCat)?.icon || "📌" : null;
 
   function handleChip(key) {
-    setActiveChip(activeChip===key ? null : key);
+    setActiveChip(activeChip === key ? null : key);
     setQuery("");
   }
 
@@ -681,32 +689,32 @@ function OptimizerPage({ query, setQuery, activeChip, setActiveChip, results, de
     <div className="page">
       <div className="topbar">
         <div>
-          <div style={{fontSize:12,color:"var(--muted)",fontWeight:600}}>Ahorra más con</div>
-          <div className="topbar-title" style={{fontFamily:"'Syne',sans-serif"}}>El Optimizador</div>
+          <div style={{ fontSize: 12, color: "var(--muted)", fontWeight: 600 }}>Ahorra más con</div>
+          <div className="topbar-title" style={{ fontFamily: "'Syne',sans-serif" }}>El Optimizador</div>
         </div>
-        <div style={{fontSize:22}}>⚡</div>
+        <div style={{ fontSize: 22 }}>⚡</div>
       </div>
 
       {/* Hero buscador */}
-      <div style={{margin:"16px 16px 4px", padding:"20px", background:"linear-gradient(135deg,var(--navy),var(--blue2))", borderRadius:24, color:"#fff"}} className="fade-up">
-        <div style={{fontSize:13,opacity:.75,marginBottom:8}}>¿Dónde vas a pagar?</div>
-        <div style={{fontSize:16,fontWeight:700,lineHeight:1.4}}>Escribe tu compra y te digo <span style={{color:"#69F0AE"}}>cuál tarjeta usar</span> para ganar más.</div>
+      <div style={{ margin: "16px 16px 4px", padding: "20px", background: "linear-gradient(135deg,var(--navy),var(--blue2))", borderRadius: 24, color: "#fff" }} className="fade-up">
+        <div style={{ fontSize: 13, opacity: .75, marginBottom: 8 }}>¿Dónde vas a pagar?</div>
+        <div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.4 }}>Escribe tu compra y te digo <span style={{ color: "#69F0AE" }}>cuál tarjeta usar</span> para ganar más.</div>
       </div>
 
       <div className="search-wrapper fade-up-1">
-        <div className="search-icon"><IconSearch/></div>
+        <div className="search-icon"><IconSearch /></div>
         <input
           className="search-input"
           placeholder='Ej: "Gasolina", "Walmart", "Restaurante"…'
           value={query}
-          onChange={e=>{setQuery(e.target.value);setActiveChip(null);}}
+          onChange={e => { setQuery(e.target.value); setActiveChip(null); }}
         />
       </div>
 
       {/* Chips categorías */}
       <div className="chips-row fade-up-2">
         {QUICK_CATS.map(c => (
-          <button key={c.key} className={`chip ${activeChip===c.key?"active":""}`} onClick={()=>handleChip(c.key)}>
+          <button key={c.key} className={`chip ${activeChip === c.key ? "active" : ""}`} onClick={() => handleChip(c.key)}>
             <span className="chip-icon">{c.icon}</span>{c.label}
           </button>
         ))}
@@ -724,30 +732,30 @@ function OptimizerPage({ query, setQuery, activeChip, setActiveChip, results, de
 
       {/* Estado inicial */}
       {hasWallet && !detectedCat && !query && (
-        <div style={{textAlign:"center",padding:"32px 20px",color:"var(--muted)"}} className="fade-up-3">
-          <div style={{fontSize:42,marginBottom:12}}>💡</div>
-          <div style={{fontSize:15,fontWeight:700,color:"var(--text)"}}>Toca una categoría o escribe</div>
-          <div style={{fontSize:13,marginTop:6}}>Te diremos qué tarjeta de tu billetera da más beneficios.</div>
+        <div style={{ textAlign: "center", padding: "32px 20px", color: "var(--muted)" }} className="fade-up-3">
+          <div style={{ fontSize: 42, marginBottom: 12 }}>💡</div>
+          <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>Toca una categoría o escribe</div>
+          <div style={{ fontSize: 13, marginTop: 6 }}>Te diremos qué tarjeta de tu billetera da más beneficios.</div>
         </div>
       )}
 
       {/* Sin match */}
       {hasWallet && query && !detectedCat && (
-        <div style={{textAlign:"center",padding:"32px 20px",color:"var(--muted)"}} className="fade-up">
-          <div style={{fontSize:42,marginBottom:12}}>🤔</div>
-          <div style={{fontSize:15,fontWeight:700,color:"var(--text)"}}>No reconozco esa tienda</div>
-          <div style={{fontSize:13,marginTop:6}}>Intenta: "gasolina", "super", "farmacia", "restaurante"…</div>
+        <div style={{ textAlign: "center", padding: "32px 20px", color: "var(--muted)" }} className="fade-up">
+          <div style={{ fontSize: 42, marginBottom: 12 }}>🤔</div>
+          <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text)" }}>No reconozco esa tienda</div>
+          <div style={{ fontSize: 13, marginTop: 6 }}>Intenta: "gasolina", "super", "farmacia", "restaurante"…</div>
         </div>
       )}
 
       {/* RESULTADOS */}
       {hasWallet && detectedCat && results.length > 0 && (
         <>
-          <div style={{padding:"16px 16px 8px",display:"flex",alignItems:"center",gap:8}} className="fade-up">
-            <span style={{fontSize:20}}>{catIcon}</span>
-            <div style={{fontFamily:"'Syne',sans-serif",fontSize:16,fontWeight:800}}>{catLabel || detectedCat}</div>
-            <div style={{flex:1}}/>
-            <div style={{fontSize:12,color:"var(--muted)",fontWeight:600}}>{results.length} tarjeta{results.length!==1?"s":""}</div>
+          <div style={{ padding: "16px 16px 8px", display: "flex", alignItems: "center", gap: 8 }} className="fade-up">
+            <span style={{ fontSize: 20 }}>{catIcon}</span>
+            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 16, fontWeight: 800 }}>{catLabel || detectedCat}</div>
+            <div style={{ flex: 1 }} />
+            <div style={{ fontSize: 12, color: "var(--muted)", fontWeight: 600 }}>{results.length} tarjeta{results.length !== 1 ? "s" : ""}</div>
           </div>
 
           {/* Ganadora */}
@@ -762,22 +770,22 @@ function OptimizerPage({ query, setQuery, activeChip, setActiveChip, results, de
 
           {/* Ranking */}
           {results.map((r, i) => (
-            <div key={r.card.id} className="result-card fade-up" style={{animationDelay:`${i*0.06}s`}}>
-              <div className={`result-rank rank-${Math.min(i+1,3)}`}>
-                {i===0 ? "🥇" : i===1 ? "🥈" : i===2 ? "🥉" : `#${i+1}`}
+            <div key={r.card.id} className="result-card fade-up" style={{ animationDelay: `${i * 0.06}s` }}>
+              <div className={`result-rank rank-${Math.min(i + 1, 3)}`}>
+                {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}
               </div>
-              <div style={{flex:1}}>
-                <div style={{fontWeight:700,fontSize:14}}>{r.card.bank} {r.card.name}</div>
-                <div style={{fontSize:12,color:"var(--muted)",marginTop:2}}>{r.nota}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, fontSize: 14 }}>{r.card.bank} {r.card.name}</div>
+                <div style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>{r.nota}</div>
               </div>
               {r.value > 0
-                ? <div className="result-value">{r.value}%<br/><span style={{fontSize:10,color:"var(--muted)",fontWeight:600}}>{r.type}</span></div>
+                ? <div className="result-value">{r.value}%<br /><span style={{ fontSize: 10, color: "var(--muted)", fontWeight: 600 }}>{r.type}</span></div>
                 : <div className="no-cashback">Sin beneficio</div>
               }
             </div>
           ))}
 
-          <div style={{margin:"12px 16px 0",padding:"14px 16px",background:"#EEF7FF",borderRadius:14,fontSize:12,color:"var(--blue)",fontWeight:600,display:"flex",gap:10,alignItems:"center"}}>
+          <div style={{ margin: "12px 16px 0", padding: "14px 16px", background: "#EEF7FF", borderRadius: 14, fontSize: 12, color: "var(--blue)", fontWeight: 600, display: "flex", gap: 10, alignItems: "center" }}>
             <span>ℹ️</span>
             <span>Los beneficios pueden variar según términos de cada banco. Siempre verifica con tu institución.</span>
           </div>
@@ -800,12 +808,12 @@ function OptimizerPage({ query, setQuery, activeChip, setActiveChip, results, de
 function CatalogPage({ catalog, wallet, onToggle, setModal, catFilter, setCatFilter, CASHBACK_RULES }) {
   const [search, setSearch] = useState("");
   const filterTabs = [
-    {key:"all",      label:"Todas"},
-    {key:"supermercado", label:"🛒 Súper"},
-    {key:"gasolina",     label:"⛽ Gas"},
-    {key:"restaurantes", label:"🍽️ Resto"},
-    {key:"farmacias",    label:"💊 Farma"},
-    {key:"general",      label:"🌟 Sin anualidad"},
+    { key: "all", label: "Todas" },
+    { key: "supermercado", label: "🛒 Súper" },
+    { key: "gasolina", label: "⛽ Gas" },
+    { key: "restaurantes", label: "🍽️ Resto" },
+    { key: "farmacias", label: "💊 Farma" },
+    { key: "general", label: "🌟 Sin anualidad" },
   ];
 
   const displayed = catalog.filter(c => {
@@ -818,30 +826,30 @@ function CatalogPage({ catalog, wallet, onToggle, setModal, catFilter, setCatFil
     <div className="page">
       <div className="topbar">
         <div>
-          <div style={{fontSize:12,color:"var(--muted)",fontWeight:600}}>{catalog.length} tarjetas disponibles</div>
-          <div className="topbar-title" style={{fontFamily:"'Syne',sans-serif"}}>Catálogo</div>
+          <div style={{ fontSize: 12, color: "var(--muted)", fontWeight: 600 }}>{catalog.length} tarjetas disponibles</div>
+          <div className="topbar-title" style={{ fontFamily: "'Syne',sans-serif" }}>Catálogo</div>
         </div>
-        <div style={{fontSize:12,color:"var(--muted)",background:"var(--bg)",padding:"6px 12px",borderRadius:20,fontWeight:700,border:"1px solid var(--border)"}}>
+        <div style={{ fontSize: 12, color: "var(--muted)", background: "var(--bg)", padding: "6px 12px", borderRadius: 20, fontWeight: 700, border: "1px solid var(--border)" }}>
           {wallet.length} en billetera
         </div>
       </div>
 
       {/* Buscador */}
-      <div className="search-wrapper fade-up" style={{marginBottom:0}}>
-        <div className="search-icon"><IconSearch/></div>
-        <input className="search-input" placeholder="Buscar banco, tarjeta…" value={search} onChange={e=>setSearch(e.target.value)}/>
+      <div className="search-wrapper fade-up" style={{ marginBottom: 0 }}>
+        <div className="search-icon"><IconSearch /></div>
+        <input className="search-input" placeholder="Buscar banco, tarjeta…" value={search} onChange={e => setSearch(e.target.value)} />
       </div>
 
       {/* Filter pills */}
-      <div className="pill-header fade-up-1" style={{margin:"10px 0 4px"}}>
+      <div className="pill-header fade-up-1" style={{ margin: "10px 0 4px" }}>
         {filterTabs.map(f => (
-          <button key={f.key} className={`pill-tab ${catFilter===f.key?"active":""}`} onClick={()=>setCatFilter(f.key)}>
+          <button key={f.key} className={`pill-tab ${catFilter === f.key ? "active" : ""}`} onClick={() => setCatFilter(f.key)}>
             {f.label}
           </button>
         ))}
       </div>
 
-      <div style={{padding:"8px 0"}}>
+      <div style={{ padding: "8px 0" }}>
         {displayed.length === 0 && (
           <div className="empty-state">
             <div className="empty-icon">🔍</div>
@@ -849,41 +857,41 @@ function CatalogPage({ catalog, wallet, onToggle, setModal, catFilter, setCatFil
             <div className="empty-sub">Intenta con otro término o categoría.</div>
           </div>
         )}
-        {displayed.map((c,i) => {
+        {displayed.map((c, i) => {
           const inWallet = wallet.includes(c.id);
-          const topRule  = CASHBACK_RULES.filter(r=>r.cardId===c.id).sort((a,b)=>b.value-a.value)[0];
+          const topRule = CASHBACK_RULES.filter(r => r.cardId === c.id).sort((a, b) => b.value - a.value)[0];
           return (
-            <div key={c.id} className="catalog-card fade-up" style={{animationDelay:`${i*0.05}s`}}>
-              <div className="catalog-logo" style={{background:getBgColor(c.id)}} onClick={()=>setModal(c.id)}>
+            <div key={c.id} className="catalog-card fade-up" style={{ animationDelay: `${i * 0.05}s` }}>
+              <div className="catalog-logo" style={{ background: getBgColor(c.id) }} onClick={() => setModal(c.id)}>
                 <span>{c.emoji}</span>
               </div>
-              <div style={{flex:1, minWidth:0}} onClick={()=>setModal(c.id)}>
+              <div style={{ flex: 1, minWidth: 0 }} onClick={() => setModal(c.id)}>
                 <div className="catalog-name">{c.name}</div>
                 <div className="catalog-bank">{c.bank}</div>
                 <div className="catalog-anual">{c.anualidad}</div>
-                <div style={{marginTop:6,display:"flex",flexWrap:"wrap",gap:4}}>
-                  {c.tags.map(t=>(
+                <div style={{ marginTop: 6, display: "flex", flexWrap: "wrap", gap: 4 }}>
+                  {c.tags.map(t => (
                     <span key={t} className="benefits-tag">{t}</span>
                   ))}
                 </div>
                 {topRule && (
-                  <div style={{marginTop:8,fontSize:12,fontWeight:700,color:topRule.value>=3?"var(--green2)":"var(--muted)"}}>
+                  <div style={{ marginTop: 8, fontSize: 12, fontWeight: 700, color: topRule.value >= 3 ? "var(--green2)" : "var(--muted)" }}>
                     ⭐ Hasta {topRule.value}% {topRule.type}
                   </div>
                 )}
               </div>
-              <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"flex-end",flexShrink:0}}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end", flexShrink: 0 }}>
                 <button
-                  className={`btn-add ${inWallet?"added":""}`}
-                  style={{padding:"8px 12px",fontSize:12}}
-                  onClick={()=>onToggle(c.id)}
+                  className={`btn-add ${inWallet ? "added" : ""}`}
+                  style={{ padding: "8px 12px", fontSize: 12 }}
+                  onClick={() => onToggle(c.id)}
                 >
                   {inWallet
-                    ? <><span style={{display:"flex"}}><IconCheck/></span></>
-                    : <><span style={{display:"flex"}}><IconPlus/></span> Agregar</>
+                    ? <><span style={{ display: "flex" }}><IconCheck /></span></>
+                    : <><span style={{ display: "flex" }}><IconPlus /></span> Agregar</>
                   }
                 </button>
-                {inWallet && <div style={{fontSize:10,color:"var(--green2)",fontWeight:700,textAlign:"center"}}>En billetera</div>}
+                {inWallet && <div style={{ fontSize: 10, color: "var(--green2)", fontWeight: 700, textAlign: "center" }}>En billetera</div>}
               </div>
             </div>
           );
