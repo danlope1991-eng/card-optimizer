@@ -378,6 +378,126 @@ const CSS = `
     transition: all .18s;
   }
   .pill-tab.active { background:var(--navy); color:#fff; }
+
+  /* ── Dashboard Total Adeudos ── */
+  .dashboard-card {
+    margin: 16px; padding: 28px 24px;
+    background: linear-gradient(135deg, #0D1B3E 0%, #1A3A6B 50%, #00C853 150%);
+    border-radius: 24px; color: #fff;
+    box-shadow: 0 12px 48px rgba(13,27,62,.35);
+    position: relative; overflow: hidden;
+  }
+  .dashboard-card::before {
+    content:''; position:absolute; top:-60px; right:-40px;
+    width:200px; height:200px; border-radius:50%;
+    background: rgba(0,200,83,.12);
+  }
+  .dashboard-card::after {
+    content:''; position:absolute; bottom:-50px; left:-20px;
+    width:160px; height:160px; border-radius:50%;
+    background: rgba(255,255,255,.04);
+  }
+  .dashboard-label { font-size:12px; opacity:.7; text-transform:uppercase; letter-spacing:1.2px; font-weight:600; }
+  .dashboard-amount {
+    font-family:'Syne',sans-serif; font-size:38px; font-weight:800;
+    line-height:1.1; margin:10px 0 4px; letter-spacing:-1px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.2);
+  }
+  .dashboard-sub { font-size:13px; opacity:.6; }
+  .dashboard-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(0,200,83,.2); border-radius:20px;
+    padding:5px 12px; font-size:11px; font-weight:700;
+    margin-top:10px; color:#69F0AE;
+  }
+
+  /* ── Visual Wallet Card ── */
+  .vcard {
+    border-radius: 20px; padding: 20px;
+    position: relative; overflow: hidden;
+    color: #fff; min-height: 200px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0,0,0,.22);
+    margin: 0 16px 16px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .vcard:hover { transform: translateY(-2px); box-shadow: 0 14px 48px rgba(0,0,0,.28); }
+  .vcard::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:160px; height:160px; border-radius:50%;
+    background: rgba(255,255,255,.1);
+  }
+  .vcard::after {
+    content:''; position:absolute; bottom:-50px; left:-20px;
+    width:130px; height:130px; border-radius:50%;
+    background: rgba(255,255,255,.06);
+  }
+  .vcard-top { display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:1; }
+  .vcard-bank { font-size:11px; font-weight:600; opacity:.75; text-transform:uppercase; letter-spacing:1px; }
+  .vcard-name { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; margin-top:2px; }
+  .vcard-delete {
+    width:32px; height:32px; border-radius:10px;
+    background:rgba(255,255,255,.15); backdrop-filter:blur(4px);
+    border:none; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background .2s;
+    color:#FF5252;
+  }
+  .vcard-delete:hover { background:rgba(255,82,82,.3); }
+  .vcard-delete svg { width:16px; height:16px; }
+  .vcard-mid {
+    display:flex; align-items:center; gap:10px;
+    margin-top:14px; position:relative; z-index:1;
+  }
+  .vcard-chip {
+    width:36px; height:28px; border-radius:6px;
+    background: linear-gradient(135deg,#FFD700,#FFA000);
+  }
+  .vcard-emoji { font-size:28px; opacity:.8; }
+  .vcard-details {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;
+    margin-top:auto; padding-top:16px; position:relative; z-index:1;
+  }
+  .vcard-field { display:flex; flex-direction:column; }
+  .vcard-field-label { font-size:9px; opacity:.55; text-transform:uppercase; letter-spacing:.5px; font-weight:600; }
+  .vcard-field-value { font-size:13px; font-weight:700; margin-top:2px; }
+  .vcard-adeudo {
+    display:flex; align-items:center; gap:6px; cursor:pointer;
+    transition: opacity .2s;
+  }
+  .vcard-adeudo:hover { opacity:.8; }
+  .vcard-edit-icon {
+    width:16px; height:16px; background:rgba(255,255,255,.2);
+    border-radius:4px; display:flex; align-items:center; justify-content:center;
+  }
+  .vcard-edit-icon svg { width:10px; height:10px; }
+
+  /* ── Edit Adeudo Modal ── */
+  .edit-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,.55);
+    z-index:120; display:flex; align-items:center; justify-content:center;
+    animation: fadeUp .18s ease;
+  }
+  .edit-modal {
+    background: var(--card); border-radius:24px;
+    width:calc(100% - 40px); max-width:360px;
+    padding:28px 24px; animation: fadeUp .25s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  }
+  .edit-modal h3 { font-size:18px; margin-bottom:4px; }
+  .edit-modal .edit-sub { font-size:13px; color:var(--muted); margin-bottom:20px; }
+  .edit-modal label { font-size:12px; font-weight:700; color:var(--muted); display:block; margin-bottom:6px; text-transform:uppercase; letter-spacing:.5px; }
+  .edit-modal input {
+    width:100%; padding:14px 16px; font-size:16px; border-radius:14px;
+    border:2px solid var(--border); background:var(--bg); color:var(--text);
+    outline:none; transition:border-color .2s; font-weight:600;
+  }
+  .edit-modal input:focus { border-color:var(--green); }
+  .edit-modal .edit-row { display:flex; gap:10px; margin-bottom:14px; }
+  .edit-modal .edit-row > div { flex:1; }
+  .edit-actions { display:flex; gap:10px; margin-top:20px; }
+  .edit-actions button { flex:1; padding:14px; border-radius:14px; font-size:14px; font-weight:700; border:none; }
+  .edit-cancel { background:var(--bg); color:var(--text); }
+  .edit-save { background:linear-gradient(135deg,var(--green),var(--green2)); color:#fff; box-shadow:0 4px 16px rgba(0,168,70,.3); }
 `;
 
 // 2. ELIMINAMOS CONST CATALOG Y CASHBACK_RULES DUMMY
@@ -413,6 +533,33 @@ const IconGrid = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 const IconPlus = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>;
 const IconCheck = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>;
 const IconTrash = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v6" /><path d="M14 11v6" /><path d="M9 6V4h6v2" /></svg>;
+const IconPencil = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" /><path d="m15 5 4 4" /></svg>;
+
+// ─── HELPERS: Moneda MXN y Fechas ─────────────────────────────────────
+const MESES = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+
+function formatMXN(amount) {
+  if (!amount && amount !== 0) return "$0 MXN";
+  return "$" + Number(amount).toLocaleString("es-MX", { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " MXN";
+}
+
+function formatFecha(day) {
+  if (!day) return "--";
+  const now = new Date();
+  let month = now.getMonth();
+  // Si el día ya pasó este mes, mostrar el del próximo mes
+  if (Number(day) < now.getDate()) month = (month + 1) % 12;
+  return `${String(day).padStart(2,"0")} / ${MESES[month]}`;
+}
+
+function formatFechaLimite(corte, limite) {
+  if (!limite) return "--";
+  const now = new Date();
+  let month = now.getMonth();
+  if (Number(corte) < now.getDate()) month = (month + 1) % 12;
+  if (Number(limite) <= Number(corte)) month = (month + 1) % 12;
+  return `${String(limite).padStart(2,"0")} / ${MESES[month]}`;
+}
 
 // ─── HELPER: detectar categoría ──────────────────────────────────────
 function detectCategory(text) {
@@ -436,10 +583,18 @@ export default function CardOptimizer() {
   const { catalog: CATALOG, rules: CASHBACK_RULES, loading, error, source, lastSync, refetch } = useSheetData();
 
   const [tab, setTab] = useState("wallet");
+  // wallet es ahora un array de objetos: { id, fecha_corte, fecha_limite_pago, adeudo_actual }
   const [wallet, setWallet] = useState(() => {
     try {
-      const saved = localStorage.getItem("cardopt_wallet_v1");
-      if (saved) return JSON.parse(saved);
+      const saved = localStorage.getItem("cardopt_wallet_v2");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Migrar de formato viejo (array de strings) a nuevo (array de objetos)
+        if (parsed.length > 0 && typeof parsed[0] === "string") {
+          return parsed.map(id => ({ id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0 }));
+        }
+        return parsed;
+      }
     } catch (_) {}
     return [];
   });
@@ -448,6 +603,12 @@ export default function CardOptimizer() {
   const [toast, setToast] = useState(null);
   const [modal, setModal] = useState(null); // card id
   const [catFilter, setCatFilter] = useState("all");
+  const [editCard, setEditCard] = useState(null); // id de la tarjeta a editar adeudo
+
+  // Calcular total de adeudos en tiempo real
+  const totalAdeudo = useMemo(() => {
+    return wallet.reduce((sum, w) => sum + (Number(w.adeudo_actual) || 0), 0);
+  }, [wallet]);
 
   // Inyectar CSS y fuente
   useEffect(() => {
@@ -460,7 +621,7 @@ export default function CardOptimizer() {
   // Persistir billetera en localStorage
   useEffect(() => {
     try {
-      localStorage.setItem("cardopt_wallet_v1", JSON.stringify(wallet));
+      localStorage.setItem("cardopt_wallet_v2", JSON.stringify(wallet));
     } catch (_) {}
   }, [wallet]);
 
@@ -469,14 +630,22 @@ export default function CardOptimizer() {
     setTimeout(() => setToast(null), 2500);
   }
 
+  // Helpers para el wallet basado en objetos
+  const walletIds = useMemo(() => wallet.map(w => w.id), [wallet]);
+  function isInWallet(id) { return walletIds.includes(id); }
+
   function toggleWallet(id) {
-    if (wallet.includes(id)) {
-      setWallet(w => w.filter(x => x !== id));
+    if (isInWallet(id)) {
+      setWallet(w => w.filter(x => x.id !== id));
       showToast("Tarjeta removida de tu billetera", "🗑️");
     } else {
-      setWallet(w => [...w, id]);
+      setWallet(w => [...w, { id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0 }]);
       showToast("¡Tarjeta agregada a tu billetera!", "💳");
     }
+  }
+
+  function updateWalletCard(id, fields) {
+    setWallet(w => w.map(item => item.id === id ? { ...item, ...fields } : item));
   }
 
   // Lógica del optimizador (Agregamos CATALOG y CASHBACK_RULES a las dependencias)
@@ -485,7 +654,7 @@ export default function CardOptimizer() {
     if (!cat && !query) return [];
     if (!cat) return [];
 
-    const walletCards = CATALOG.filter(c => wallet.includes(c.id));
+    const walletCards = CATALOG.filter(c => isInWallet(c.id));
     const results = walletCards.map(card => {
       const rule = CASHBACK_RULES.find(r => r.cardId === card.id && r.cat === cat)
         || CASHBACK_RULES.find(r => r.cardId === card.id && r.cat === "general");
@@ -497,7 +666,7 @@ export default function CardOptimizer() {
       };
     });
     return results.sort((a, b) => b.value - a.value);
-  }, [query, activeChip, wallet, CATALOG, CASHBACK_RULES]);
+  }, [query, activeChip, walletIds, CATALOG, CASHBACK_RULES]);
 
   const detectedCat = activeChip || detectCategory(query);
 
@@ -510,7 +679,7 @@ export default function CardOptimizer() {
     });
   }, [catFilter, CATALOG, CASHBACK_RULES]);
 
-  const walletCards = CATALOG.filter(c => wallet.includes(c.id));
+  const walletCards = CATALOG.filter(c => isInWallet(c.id));
   const selectedModal = modal ? CATALOG.find(c => c.id === modal) : null;
   const modalRules = modal ? CASHBACK_RULES.filter(r => r.cardId === modal) : [];
 
@@ -523,7 +692,7 @@ export default function CardOptimizer() {
       </div>
 
       {/* ── TABS ── */}
-      {tab === "wallet" && <WalletPage walletCards={walletCards} onAddCard={() => setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES} />}
+      {tab === "wallet" && <WalletPage walletCards={walletCards} onAddCard={() => setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES} totalAdeudo={totalAdeudo} walletData={wallet} updateWalletCard={updateWalletCard} editCard={editCard} setEditCard={setEditCard} />}
       {tab === "optimizer" && <OptimizerPage query={query} setQuery={setQuery} activeChip={activeChip} setActiveChip={setActiveChip} results={optimizerResults} detectedCat={detectedCat} hasWallet={wallet.length > 0} goWallet={() => setTab("catalog")} />}
       {tab === "catalog" && <CatalogPage catalog={filteredCatalog} wallet={wallet} onToggle={toggleWallet} setModal={setModal} catFilter={catFilter} setCatFilter={setCatFilter} CASHBACK_RULES={CASHBACK_RULES} />}
 
@@ -595,7 +764,21 @@ export default function CardOptimizer() {
 
 
 // ─── PAGE: BILLETERA ─────────────────────────────────────────────────
-function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES }) {
+function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES, totalAdeudo, walletData, updateWalletCard, editCard, setEditCard }) {
+  const [editValue, setEditValue] = useState("");
+
+  function openEdit(id, currentAdeudo) {
+    setEditValue(currentAdeudo || "0");
+    setEditCard(id);
+  }
+
+  function handleSaveAdeudo() {
+    if (!editCard) return;
+    const numValue = parseFloat(String(editValue).replace(/[^0-9.-]+/g, "")) || 0;
+    updateWalletCard(editCard, { adeudo_actual: numValue });
+    setEditCard(null);
+  }
+
   return (
     <div className="page">
       <div className="topbar">
@@ -606,71 +789,101 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
         <div className="topbar-avatar">MX</div>
       </div>
 
-      {/* Hero */}
-      <div className="wallet-hero fade-up" style={{ position: "relative" }}>
-        <div className="wallet-hero-label">Tarjetas activas</div>
-        <div className="wallet-hero-count">{walletCards.length}</div>
-        <div className="wallet-hero-sub">{walletCards.length === 0 ? "Agrega tu primera tarjeta →" : walletCards.length === 1 ? "Tienes 1 plástico registrado" : `${walletCards.length} plásticos en tu billetera`}</div>
-        <div className="wallet-hero-icon">💳</div>
+      {/* Dashboard Total Adeudos */}
+      <div className="dashboard-card fade-up">
+        <div className="dashboard-label">Total Adeudos</div>
+        <div className="dashboard-amount">{formatMXN(totalAdeudo)}</div>
+        <div className="dashboard-sub">
+          {walletCards.length === 0 ? "Sin plásticos registrados" : `En ${walletCards.length} tarjeta${walletCards.length !== 1 ? 's' : ''}`}
+        </div>
+        {walletCards.length > 0 && totalAdeudo === 0 && (
+          <div className="dashboard-badge">✨ ¡Excelente! Todo al corriente</div>
+        )}
       </div>
 
-      {/* Tarjetas visuales (carrusel horizontal) */}
-      {walletCards.length > 0 && (
-        <div style={{ padding: "16px 0 4px" }}>
-          <div style={{ display: "flex", gap: 14, overflowX: "auto", padding: "4px 16px 12px", scrollbarWidth: "none" }}>
-            {walletCards.map((c, i) => (
-              <div key={c.id} className="credit-card fade-up" style={{ background: c.gradient, minWidth: 240, animationDelay: `${i * 0.08}s`, cursor: "pointer" }} onClick={() => setModal(c.id)}>
-                <div>
-                  <div className="card-bank">{c.bank}</div>
-                  <div className="card-name">{c.name}</div>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                  <div className="card-chip" />
-                  <div style={{ fontSize: 26, opacity: .8 }}>{c.emoji}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Tarjetas Visuales Detalladas */}
+      <div className="section-header fade-up-1">
+        <div className="section-title">Tus tarjetas</div>
+        <button className="btn-ghost" style={{ padding: "8px 14px", fontSize: 13 }} onClick={onAddCard}>+ Agregar</button>
+      </div>
 
-      {/* Lista */}
       {walletCards.length === 0 ? (
         <div className="empty-state fade-up-1">
           <div className="empty-icon">💳</div>
           <div className="empty-title">Tu billetera está vacía</div>
-          <div className="empty-sub">Agrega tus tarjetas para que el Optimizador pueda recomendarte cuál usar en cada compra.</div>
+          <div className="empty-sub">Agrega tus tarjetas para organizar tus fechas y ver beneficios.</div>
           <button className="btn-primary" onClick={onAddCard}>
             <span style={{ fontSize: 18 }}><IconPlus /></span>
             Agregar mi primera tarjeta
           </button>
         </div>
       ) : (
-        <>
-          <div className="section-header fade-up-1">
-            <div className="section-title">Tus tarjetas</div>
-            <button className="btn-ghost" style={{ padding: "8px 14px", fontSize: 13 }} onClick={onAddCard}>+ Agregar</button>
-          </div>
-          {walletCards.map((c, i) => {
-            const top = CASHBACK_RULES.filter(r => r.cardId === c.id).sort((a, b) => b.value - a.value)[0];
-            return (
-              <div key={c.id} className={`wallet-item fade-up-${Math.min(i + 1, 3)}`} style={{ animationDelay: `${i * 0.07}s` }}>
-                <div className="wallet-dot" style={{ background: getBgColor(c.id) }} onClick={() => setModal(c.id)}>
-                  <span style={{ fontSize: 22 }}>{c.emoji}</span>
+        walletCards.map((c, i) => {
+          const wd = walletData.find(w => w.id === c.id) || {};
+          return (
+            <div key={c.id} className={`vcard fade-up-${Math.min(i + 1, 3)}`} style={{ background: c.gradient, animationDelay: `${i * 0.08}s` }}>
+              
+              <div className="vcard-top">
+                <div onClick={() => setModal(c.id)} style={{ cursor: "pointer", flex: 1 }}>
+                  <div className="vcard-bank">{c.bank}</div>
+                  <div className="vcard-name">{c.name}</div>
                 </div>
-                <div className="wallet-info" onClick={() => setModal(c.id)}>
-                  <div className="wallet-name">{c.bank} {c.name}</div>
-                  <div className="wallet-bank">{c.anualidad}</div>
-                  {top && <div className="wallet-badge" style={{ marginTop: 5 }}>🎯 Hasta {top.value}% {top.type}</div>}
-                </div>
-                <button className="btn-icon" style={{ color: "#EF5350" }} onClick={() => onRemove(c.id)}>
+                <button className="vcard-delete" onClick={() => onRemove(c.id)}>
                   <IconTrash />
                 </button>
               </div>
-            );
-          })}
-        </>
+
+              <div className="vcard-mid" onClick={() => setModal(c.id)} style={{ cursor: "pointer" }}>
+                <div className="vcard-chip" />
+                <div className="vcard-emoji">{c.emoji}</div>
+              </div>
+
+              <div className="vcard-details">
+                <div className="vcard-field">
+                  <span className="vcard-field-label">Fecha de corte</span>
+                  <span className="vcard-field-value">{formatFecha(wd.fecha_corte)}</span>
+                </div>
+                <div className="vcard-field">
+                  <span className="vcard-field-label">Límite de pago</span>
+                  <span className="vcard-field-value">{formatFechaLimite(wd.fecha_corte, wd.fecha_limite_pago)}</span>
+                </div>
+                <div className="vcard-field">
+                  <span className="vcard-field-label">Adeudo</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.adeudo_actual)}>
+                    <span className="vcard-field-value">{formatMXN(wd.adeudo_actual)}</span>
+                    <div className="vcard-edit-icon"><IconPencil /></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          );
+        })
       )}
+
+      {/* Modal de Edición de Adeudo */}
+      {editCard && (
+        <div className="edit-overlay" onClick={() => setEditCard(null)}>
+          <div className="edit-modal" onClick={e => e.stopPropagation()}>
+            <h3>Editar Adeudo</h3>
+            <div className="edit-sub">Actualiza el saldo actual de tu tarjeta.</div>
+            <label>Adeudo Actual (MXN)</label>
+            <input 
+              type="number" 
+              inputMode="decimal"
+              placeholder="0.00" 
+              value={editValue} 
+              onChange={e => setEditValue(e.target.value)}
+              autoFocus
+            />
+            <div className="edit-actions">
+              <button className="edit-cancel" onClick={() => setEditCard(null)}>Cancelar</button>
+              <button className="edit-save" onClick={handleSaveAdeudo}>Guardar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
