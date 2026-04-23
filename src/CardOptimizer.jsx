@@ -454,7 +454,7 @@ const CSS = `
   }
   .vcard-emoji { font-size:28px; opacity:.8; }
   .vcard-details {
-    display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;
+    display:grid; grid-template-columns:1fr 1fr; gap:12px 8px;
     margin-top:auto; padding-top:16px; position:relative; z-index:1;
   }
   .vcard-field { display:flex; flex-direction:column; }
@@ -591,7 +591,7 @@ export default function CardOptimizer() {
         const parsed = JSON.parse(saved);
         // Migrar de formato viejo (array de strings) a nuevo (array de objetos)
         if (parsed.length > 0 && typeof parsed[0] === "string") {
-          return parsed.map(id => ({ id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0 }));
+          return parsed.map(id => ({ id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 4500, adeudo_msi: 0 }));
         }
         return parsed;
       }
@@ -639,7 +639,7 @@ export default function CardOptimizer() {
       setWallet(w => w.filter(x => x.id !== id));
       showToast("Tarjeta removida de tu billetera", "🗑️");
     } else {
-      setWallet(w => [...w, { id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0 }]);
+      setWallet(w => [...w, { id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 4500, adeudo_msi: 0 }]);
       showToast("¡Tarjeta agregada a tu billetera!", "💳");
     }
   }
@@ -766,17 +766,20 @@ export default function CardOptimizer() {
 // ─── PAGE: BILLETERA ─────────────────────────────────────────────────
 function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES, totalAdeudo, walletData, updateWalletCard, editCard, setEditCard }) {
   const [editValue, setEditValue] = useState("");
+  const [editField, setEditField] = useState(null);
 
-  function openEdit(id, currentAdeudo) {
-    setEditValue(currentAdeudo || "0");
+  function openEdit(id, currentValue, fieldName = 'adeudo_actual') {
+    setEditValue(currentValue || "0");
     setEditCard(id);
+    setEditField(fieldName);
   }
 
   function handleSaveAdeudo() {
     if (!editCard) return;
     const numValue = parseFloat(String(editValue).replace(/[^0-9.-]+/g, "")) || 0;
-    updateWalletCard(editCard, { adeudo_actual: numValue });
+    updateWalletCard(editCard, { [editField || 'adeudo_actual']: numValue });
     setEditCard(null);
+    setEditField(null);
   }
 
   return (
@@ -848,9 +851,23 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
                   <span className="vcard-field-value">{formatFechaLimite(wd.fecha_corte, wd.fecha_limite_pago)}</span>
                 </div>
                 <div className="vcard-field">
-                  <span className="vcard-field-label">Adeudo</span>
-                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.adeudo_actual)}>
+                  <span className="vcard-field-label">Adeudo Total</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.adeudo_actual, 'adeudo_actual')}>
                     <span className="vcard-field-value">{formatMXN(wd.adeudo_actual)}</span>
+                    <div className="vcard-edit-icon"><IconPencil /></div>
+                  </div>
+                </div>
+                <div className="vcard-field">
+                  <span className="vcard-field-label" style={{ color: '#69F0AE' }}>Pago no intereses</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.pago_no_intereses ?? 4500, 'pago_no_intereses')}>
+                    <span className="vcard-field-value" style={{ color: '#69F0AE' }}>{formatMXN(wd.pago_no_intereses ?? 4500)}</span>
+                    <div className="vcard-edit-icon"><IconPencil /></div>
+                  </div>
+                </div>
+                <div className="vcard-field" style={{ gridColumn: "span 2" }}>
+                  <span className="vcard-field-label">Adeudo total meses sin intereses</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.adeudo_msi ?? 0, 'adeudo_msi')}>
+                    <span className="vcard-field-value">{formatMXN(wd.adeudo_msi ?? 0)}</span>
                     <div className="vcard-edit-icon"><IconPencil /></div>
                   </div>
                 </div>
@@ -863,11 +880,11 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
 
       {/* Modal de Edición de Adeudo */}
       {editCard && (
-        <div className="edit-overlay" onClick={() => setEditCard(null)}>
+        <div className="edit-overlay" onClick={() => { setEditCard(null); setEditField(null); }}>
           <div className="edit-modal" onClick={e => e.stopPropagation()}>
-            <h3>Editar Adeudo</h3>
-            <div className="edit-sub">Actualiza el saldo actual de tu tarjeta.</div>
-            <label>Adeudo Actual (MXN)</label>
+            <h3>{editField === 'pago_no_intereses' ? 'Pago para no generar intereses' : editField === 'adeudo_msi' ? 'Adeudo MSI' : 'Editar Adeudo'}</h3>
+            <div className="edit-sub">Actualiza el saldo de tu tarjeta.</div>
+            <label>{editField === 'pago_no_intereses' ? 'Monto (MXN)' : editField === 'adeudo_msi' ? 'Monto MSI (MXN)' : 'Adeudo Actual (MXN)'}</label>
             <input 
               type="number" 
               inputMode="decimal"
@@ -877,7 +894,7 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
               autoFocus
             />
             <div className="edit-actions">
-              <button className="edit-cancel" onClick={() => setEditCard(null)}>Cancelar</button>
+              <button className="edit-cancel" onClick={() => { setEditCard(null); setEditField(null); }}>Cancelar</button>
               <button className="edit-save" onClick={handleSaveAdeudo}>Guardar</button>
             </div>
           </div>
