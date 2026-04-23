@@ -591,7 +591,7 @@ export default function CardOptimizer() {
         const parsed = JSON.parse(saved);
         // Migrar de formato viejo (array de strings) a nuevo (array de objetos)
         if (parsed.length > 0 && typeof parsed[0] === "string") {
-          return parsed.map(id => ({ id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 4500, adeudo_msi: 0 }));
+          return parsed.map(id => ({ id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 0, adeudo_msi: 0 }));
         }
         return parsed;
       }
@@ -639,7 +639,7 @@ export default function CardOptimizer() {
       setWallet(w => w.filter(x => x.id !== id));
       showToast("Tarjeta removida de tu billetera", "🗑️");
     } else {
-      setWallet(w => [...w, { id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 4500, adeudo_msi: 0 }]);
+      setWallet(w => [...w, { id, fecha_corte: 15, fecha_limite_pago: 5, adeudo_actual: 0, pago_no_intereses: 0, adeudo_msi: 0 }]);
       showToast("¡Tarjeta agregada a tu billetera!", "💳");
     }
   }
@@ -859,8 +859,8 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
                 </div>
                 <div className="vcard-field">
                   <span className="vcard-field-label" style={{ color: '#69F0AE' }}>Pago no intereses</span>
-                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.pago_no_intereses ?? 4500, 'pago_no_intereses')}>
-                    <span className="vcard-field-value" style={{ color: '#69F0AE' }}>{formatMXN(wd.pago_no_intereses ?? 4500)}</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.pago_no_intereses ?? 0, 'pago_no_intereses')}>
+                    <span className="vcard-field-value" style={{ color: '#69F0AE' }}>{formatMXN(wd.pago_no_intereses ?? 0)}</span>
                     <div className="vcard-edit-icon"><IconPencil /></div>
                   </div>
                 </div>
