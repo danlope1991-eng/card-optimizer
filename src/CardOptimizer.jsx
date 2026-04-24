@@ -610,6 +610,10 @@ export default function CardOptimizer() {
     return wallet.reduce((sum, w) => sum + (Number(w.adeudo_actual) || 0), 0);
   }, [wallet]);
 
+  const totalPagoNoIntereses = useMemo(() => {
+    return wallet.reduce((sum, w) => sum + (Number(w.pago_no_intereses) || 0), 0);
+  }, [wallet]);
+
   // Inyectar CSS y fuente
   useEffect(() => {
     const style = document.createElement("style");
@@ -692,7 +696,7 @@ export default function CardOptimizer() {
       </div>
 
       {/* ── TABS ── */}
-      {tab === "wallet" && <WalletPage walletCards={walletCards} onAddCard={() => setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES} totalAdeudo={totalAdeudo} walletData={wallet} updateWalletCard={updateWalletCard} editCard={editCard} setEditCard={setEditCard} />}
+      {tab === "wallet" && <WalletPage walletCards={walletCards} onAddCard={() => setTab("catalog")} onRemove={toggleWallet} setModal={setModal} CASHBACK_RULES={CASHBACK_RULES} totalAdeudo={totalAdeudo} totalPagoNoIntereses={totalPagoNoIntereses} walletData={wallet} updateWalletCard={updateWalletCard} editCard={editCard} setEditCard={setEditCard} />}
       {tab === "optimizer" && <OptimizerPage query={query} setQuery={setQuery} activeChip={activeChip} setActiveChip={setActiveChip} results={optimizerResults} detectedCat={detectedCat} hasWallet={wallet.length > 0} goWallet={() => setTab("catalog")} />}
       {tab === "catalog" && <CatalogPage catalog={filteredCatalog} wallet={wallet} onToggle={toggleWallet} setModal={setModal} catFilter={catFilter} setCatFilter={setCatFilter} CASHBACK_RULES={CASHBACK_RULES} />}
 
@@ -764,7 +768,7 @@ export default function CardOptimizer() {
 
 
 // ─── PAGE: BILLETERA ─────────────────────────────────────────────────
-function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES, totalAdeudo, walletData, updateWalletCard, editCard, setEditCard }) {
+function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES, totalAdeudo, totalPagoNoIntereses, walletData, updateWalletCard, editCard, setEditCard }) {
   const [editValue, setEditValue] = useState("");
   const [editField, setEditField] = useState(null);
 
@@ -799,6 +803,16 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
         <div className="dashboard-sub">
           {walletCards.length === 0 ? "Sin plásticos registrados" : `En ${walletCards.length} tarjeta${walletCards.length !== 1 ? 's' : ''}`}
         </div>
+        
+        {walletCards.length > 0 && (
+          <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+            <div className="dashboard-label">Total a pagar (no intereses)</div>
+            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 24, fontWeight: 800, marginTop: 4, color: "#69F0AE" }}>
+              {formatMXN(totalPagoNoIntereses)}
+            </div>
+          </div>
+        )}
+
         {walletCards.length > 0 && totalAdeudo === 0 && (
           <div className="dashboard-badge">✨ ¡Excelente! Todo al corriente</div>
         )}
@@ -844,11 +858,17 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
               <div className="vcard-details">
                 <div className="vcard-field">
                   <span className="vcard-field-label">Fecha de corte</span>
-                  <span className="vcard-field-value">{formatFecha(wd.fecha_corte)}</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.fecha_corte, 'fecha_corte')}>
+                    <span className="vcard-field-value">{formatFecha(wd.fecha_corte)}</span>
+                    <div className="vcard-edit-icon"><IconPencil /></div>
+                  </div>
                 </div>
                 <div className="vcard-field">
                   <span className="vcard-field-label">Límite de pago</span>
-                  <span className="vcard-field-value">{formatFechaLimite(wd.fecha_corte, wd.fecha_limite_pago)}</span>
+                  <div className="vcard-adeudo" onClick={() => openEdit(c.id, wd.fecha_limite_pago, 'fecha_limite_pago')}>
+                    <span className="vcard-field-value">{formatFechaLimite(wd.fecha_corte, wd.fecha_limite_pago)}</span>
+                    <div className="vcard-edit-icon"><IconPencil /></div>
+                  </div>
                 </div>
                 <div className="vcard-field">
                   <span className="vcard-field-label">Adeudo Total</span>
@@ -882,9 +902,11 @@ function WalletPage({ walletCards, onAddCard, onRemove, setModal, CASHBACK_RULES
       {editCard && (
         <div className="edit-overlay" onClick={() => { setEditCard(null); setEditField(null); }}>
           <div className="edit-modal" onClick={e => e.stopPropagation()}>
-            <h3>{editField === 'pago_no_intereses' ? 'Pago para no generar intereses' : editField === 'adeudo_msi' ? 'Adeudo MSI' : 'Editar Adeudo'}</h3>
-            <div className="edit-sub">Actualiza el saldo de tu tarjeta.</div>
-            <label>{editField === 'pago_no_intereses' ? 'Monto (MXN)' : editField === 'adeudo_msi' ? 'Monto MSI (MXN)' : 'Adeudo Actual (MXN)'}</label>
+            <h3>{editField === 'pago_no_intereses' ? 'Pago para no generar intereses' : editField === 'adeudo_msi' ? 'Adeudo MSI' : editField === 'fecha_corte' ? 'Día de Corte' : editField === 'fecha_limite_pago' ? 'Día Límite de Pago' : 'Editar Adeudo'}</h3>
+            <div className="edit-sub">
+              {editField === 'fecha_corte' || editField === 'fecha_limite_pago' ? 'Ingresa el día del mes (1-31).' : 'Actualiza el saldo de tu tarjeta.'}
+            </div>
+            <label>{editField === 'pago_no_intereses' ? 'Monto (MXN)' : editField === 'adeudo_msi' ? 'Monto MSI (MXN)' : editField === 'fecha_corte' ? 'Día de corte (ej. 15)' : editField === 'fecha_limite_pago' ? 'Día límite (ej. 5)' : 'Adeudo Actual (MXN)'}</label>
             <input 
               type="number" 
               inputMode="decimal"
